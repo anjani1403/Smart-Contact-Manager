@@ -1,0 +1,27 @@
+body {
+	background : #e2e2e2!important
+}
+
+.bg-primary {
+	background : #009688 !important;
+}
+
+.banner {
+	width : 100%;
+	height : 93vh;
+	background : linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)) ,url(../img/background.jpeg);
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+	color : white;
+}
+
+.my-card{
+	padding : 20px;
+	background : #ffffff;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
