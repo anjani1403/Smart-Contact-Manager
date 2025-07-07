@@ -1,13 +1,60 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base :: Layout(~{::section})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: Layout(~{::section})}">
 <head>
 	<meta charset="UTF-8" />
-	<title>This is home page</title>
+	<title>About - SmartContactManager</title>
 </head>
-<body>
-	<section>
-		<h1>This is about page</h1>
-		<h2>Here we are going to write about smart contact manager</h2>
-	</section>
-</body>
+	<body>
+		
+		<div th:replace="~{base :: Layout(~{::section})}">
+			
+			<section class="banner d-flex justify-content-center align-items-center">
+				
+				<style>
+					@media screen and (max-width: 600px) {
+						.glass-container {
+							margin: 80px 15px 0 15px !important;
+							padding: 20px !important;
+						}
+						
+						.glass-container h4,
+						.glass-container h6 {
+							font-size: 18px;
+							line-height: 1.6;
+						}
+						
+						.banner .text-center.position-absolute {
+							top: 20px !important;
+							margin-top: 30px !important;
+						}
+						
+						.banner .text-center.position-absolute h1 {
+							font-size: 25px;
+							margin-top: 10px;
+						}
+					}
+				</style>
+				
+				<div class="text-center position-absolute" style="top: 50px; width: 100%; margin-top:75px;">
+				    <h1 class="font-weight-bold">About Smart Contact Manager</h1>
+			    </div>
+				
+				<div class="glass-container text-center">
+								
+						<h4>Welcome to <strong>Smart Contact Manager</strong> — <br>your simple, secure, and efficient solution to manage contacts<br> on the cloud!</h4>
+							
+						<h6 class="mt-3">
+						I understand how important your contacts are — whether you're a professional, entrepreneur, or student.
+							Smart Contact Manager helps you keep all your contacts organized in one place, accessible anytime, from anywhere.
+						</h6>
+					
+					<h4 class="mt-4">Developed with ❤️ by <i>Anjani Manthapurwar</i> as part of my SpringBoot learning journey.</h4>
+			
+				</div>
+			
+			</section>
+			
+		</div>
+	</body>
+
 </html>

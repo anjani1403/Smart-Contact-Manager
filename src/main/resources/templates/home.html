@@ -1,21 +1,27 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base :: Layout(~{::section})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
-	<title>This is home page</title>
+	<title>SmartContactManager</title>
 </head>
 <body>
-	<section class="banner d-flex justify-content-center align-items-center">
-		
-		<div class="text-center">
-			<h1 class="font-weight-bold">Smart Contact Manager</h1>
-			<p>Start Collecting Your Contacts in very smarter way. We provide
-			very efficient and smarter way of handling contacts.</p>
-		
-			<button class="btn bg-primary btn-lg text-white">Get Started</button>
-		
-		</div>
-		
-	</section>
+	<div th:replace="~{base :: Layout(~{::section})}">
+		<section class="banner d-flex justify-content-center align-items-center">
+			
+			<div class="text-center">
+			<i class="fa fa-address-book fa-4x mb-2" style="color: white;" aria-hidden="true"></i>
+				<h1 class="font-weight-bold">Smart Contact Manager</h1>
+				<p>Start Collecting Your Contacts in very smarter way. We provide
+				very efficient and smarter way of handling contacts.</p>
+			
+				<a th:href="@{/signin}"
+					class="btn btn-lg text-white" style="background: linear-gradient(to bottom right, #5C677D, #9CA3B5) !important;">
+					Get Started
+				</a>
+			
+			</div>
+			
+		</section>
+	</div>
 </body>
 </html>

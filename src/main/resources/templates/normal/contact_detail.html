@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base :: Layout(~{::section})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>This is home page</title>
+</head>
+<body>
+	<section th:fragment="section">
+		<div class="card mx-2 mx-sm-4 my-3 " th:if="${contact}">
+		
+			<div class="card-body">
+			
+				<div class="container text-center">
+				
+					<img src="" style="height : 200px; width : 200px; object-fit : cover;" class="rounded-circle my-3" th:src="@{'/img/'+${contact.image}}" alt="profile photo" />
+					
+					<h2 class="mt-3"><strong><span th:text="${contact.name}"></span> (<span th:text="${contact.secondName}"></span>)</strong></h2>
+					
+					<div class="table-responsive mt-3">
+					
+						<table class="table table-bordered">
+						<thead class="thead-light">
+							<tr>
+						    	<th class="text-center" scope="col">#ID</th>
+							    <th class="text-center" scope="col">SCM-<span th:text="${contact.cId}"></span></th>
+					    	</tr>
+						</thead>
+					  		<tbody>
+						  		<tr>
+						      		<th scope="row">Email</th>
+							      	<td><span th:text="${contact.email}"></span></td>
+						  		</tr>
+						  		<tr>
+						      		<th scope="row">Phone</th>
+							      	<td><span th:text="${contact.phone}"></span></td>
+						  		</tr>
+						  		<tr>
+						      		<th scope="row">Profession</th>
+							      	<td><span th:text="${contact.work}"></span></td>
+						  		</tr>
+						  		<tr>
+									<td colspan="2" style="padding: 0; border-top: 1px solid #dee2e6;"></td>
+								</tr>
+					  		</tbody>
+					  		
+						</table>
+					
+					</div>
+					
+					<div class="description mt-3">
+				  		<h5 class="text-center mb-3"><strong>Description of <span th:text="${contact.name}"></span></strong></h5>
+		  				<span th:utext="${contact.description}"></span>
+				  		
+		  			</div>
+		  			
+		  			<hr style="border-top: 2px solid #dee2e6; margin-top: 1rem; margin-bottom: 1rem;" />
+		  			
+			  			<div class="container mt-4 d-flex justify-content-center align-items-center">
+			  				
+			  				<form method="post" th:action="@{'/user/'+${contact.cId}+'/update-contact'}">
+							    			
+				    			<button type="submit" class="btn btn-success btn-sm mr-2"><i class="fa-solid fa-pen"></i> UPDATE </button>
+				    		
+				    		</form>
+			  			
+				  			<!-- <button class="btn btn-outline-success btn-sm mr-1"><i class="fa-solid fa-pen"></i> UPDATE </button> -->
+				    		<a href="#" th:onclick="'deleteContact(' + ${contact.cId} + ')'" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-trash"></i> DELETE </a>
+			  			
+			  			</div>
+		  			
+				</div>
+			
+			</div>
+			
+		</div>
+		<h3 class="text-center bg-danger text-white p-2 mr-4" th:unless="${contact}"><i class="fa-solid fa-circle-exclamation"></i>  Trying To Access Unauthorized Contact ID</h3>
+		
+		<script>
+			$(document).ready(() => {
+				$(".item").removeClass("active");
+				$("#viewContact-link").addClass("active");
+			})
+		</script>
+		
+	</section>
+</body>
+</html>

@@ -12,6 +12,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="USER")
@@ -20,17 +24,32 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
+	@NotBlank(message = "Name field is required!")
+	@Size(min = 3, max = 30, message ="Name must be between 3 to 30 characters!")
 	private String name;
+	
 	@Column(unique = true)
+	@NotBlank(message = "Email field is required!")
+	@Email(message = "Please enter a valid email address!")
+	@Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Email format is invalid!")
 	private String email;
+	
+	@NotBlank(message = "Password is required")
+	@Size(min=8, message="Password must be at least 8 characters")
 	private String password;
+	
 	private String role;
+	
 	private boolean enabled;
+	
 	private String imageUrl;
+	
 	@Column(length = 500)
+	@Size(max = 500, message = "About section must be under 500 characters!")
 	private String about;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
 	private List<Contact> contacts = new ArrayList<>();
 	
 	public User() {

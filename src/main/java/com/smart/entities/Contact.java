@@ -1,5 +1,7 @@
 package com.smart.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +28,8 @@ public class Contact {
 	@Column(length = 1000)
 	private String description;
 	
-	@ManyToOne()
+	@ManyToOne
+	@JsonIgnore
 	private User user;
 	
 	public Contact() {
@@ -120,11 +123,12 @@ public class Contact {
 		this.description = description;
 	}
 
-	@Override
-	public String toString() {
-		return "Contact [cId=" + cId + ", name=" + name + ", secondName=" + secondName + ", work=" + work + ", email="
-				+ email + ", phone=" + phone + ", image=" + image + ", description=" + description + ", user=" + user
-				+ "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Contact [cId=" + cId + ", name=" + name + ", secondName=" + secondName + ", work=" + work + ", email="
+//				+ email + ", phone=" + phone + ", image=" + image + ", description=" + description + ", user=" + user
+//				+ "]";
+//	}
+
 	
 }

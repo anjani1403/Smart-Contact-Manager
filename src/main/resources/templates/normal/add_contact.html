@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base :: Layout(~{::section})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>This is home page</title>
+</head>
+<body>
+	<section th:fragment="section">
+		
+		
+		<div class="card mb-5 mx-3 mx-md-5 px-3 px-md-5 py-4">
+		
+			<div class="card-body ">
+			
+				<h1 class="text-center font-weight-bold">Add Contact</h1>
+				
+				<div class="container-fluid">
+				
+					<div class="row">
+					
+						<div class="col-md-10 offset-md-1">
+						
+							<form action="#" 
+								th:object="${contact}" 
+								enctype="multipart/form-data" 
+								method="POST"
+								th:action="@{/user/process-contact}"
+								class="mt-2">
+							
+								<!-- FirstName Field -->
+								<div class="input-group">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text mr-3">
+										
+											<i class="fa-solid fa-plus"></i>
+										
+										</div>
+									
+									</div>
+									
+									<input required type="text" id="firstName" name="name" placeholder="Enter First Name Here" class="form-control"/>
+								
+								</div>
+								
+								<!-- LastName Field -->
+								<div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text mr-3">
+										
+											<i class="fa-solid fa-plus"></i>
+										
+										</div>
+									
+									</div>
+									
+									<input required type="text" id="lastName" name="secondName" placeholder="Enter Nick Name Here" class="form-control"/>
+								
+								</div>
+								
+								<!-- Phone Number Field -->
+								<div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text mr-3">
+										
+											<i class="fa-solid fa-phone"></i>
+										
+										</div>
+									
+									</div>
+									
+									<input type="tel" 
+										   id="phone" 
+										   name="phone" 
+										   pattern="[0-9]{10}" 
+										   maxlength="10" 
+										   required 
+										   placeholder="Enter Phone Number Here"
+										   title="Enter 10-digit phone number without spaces or special characters" 
+										   class="form-control"/>
+								
+								</div>
+								
+								<!-- Email Field -->
+								<div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text mr-3">
+										
+											<i class="fa-solid fa-envelope"></i>
+										
+										</div>
+									
+									</div>
+									
+									<input required 
+									       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+									       type="email" 
+									       id="email" 
+									       name="email" 
+									       placeholder="Enter Email Here" 
+									       class="form-control"/>
+								
+								</div>
+								
+								<!-- Work Field -->
+								<div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text mr-3">
+										
+											<i class="fa-solid fa-briefcase"></i>
+										
+										</div>
+									
+									</div>
+									
+									<input required type="text" id="work" name="work" placeholder="Enter Profession Here" class="form-control"/>
+								
+								</div>
+								
+								<!-- Description Field -->
+								<div class="form-group mt-3">
+								
+									<textarea placeholder="Enter Contact Description Here" name="description" id="mytextarea" cols="30" rows="7" class="form-control"></textarea>
+								
+								</div>	
+								
+								<!-- Contact Image Field -->
+								<p class="text-secondary text-info mb-1"><strong>Upload Profile Image</strong></p>
+								
+								<!-- <div class="custom-file">
+								
+									<input type="file" name="profileImage"/>
+								
+								</div> -->
+								
+								<div class="custom-file w-100 w-sm w-md-50 mx-auto mt-1 mb-3 mx-auto">
+								
+									<input type="file" class="custom-file-input" id="profileImage" name="profileImage"/>
+									<label class="custom-file-label" for="profileImage">Choose File</label>
+								
+								</div>
+								
+								<div class="container text-center">
+								
+									<button class="btn btn-info btn-primary">Save Contact</button>
+								
+								</div>
+														
+							</form>
+						
+						</div>
+					
+					</div>
+				
+				</div>
+			
+			</div>
+		
+		</div>
+		
+		<script>
+
+			$(document).ready(() => {
+				$(".item").removeClass("active");
+				$("#addContact-link").addClass("active");
+			})
+
+		</script>
+		
+	</section>
+</body>
+</html>

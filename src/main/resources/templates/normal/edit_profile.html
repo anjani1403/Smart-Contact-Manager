@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base :: Layout(~{::section})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>Edit Profile</title>
+</head>
+<body>
+	<section th:fragment="section">
+	
+		<!-- <div class="container mt-5 ">
+		
+			<div class="row">
+			
+				<div class="col-md-6 offset-md-3">
+				
+					<div class="my-card">
+					
+					<div class="card mr-5 mb-5"> -->
+		
+			<div class="card-body mr-5">
+			
+				<h1 class="text-center font-weight-bold">Edit Your Profile</h1>
+				
+				<div class="container-fluid">
+				
+					<div class="row">
+					
+						<div class="col-md-10 offset-md-1">
+					
+						<!-- Session Message -->
+						
+						<div th:if="${session.message}" role="alert"
+							th:class="'alert ' + ${session.message.type}">
+							<p class="text-center" th:text="${session.message.content}"></p>
+						</div>
+						
+							<!-- <h2 class="text-center mb-3">Edit Your Profile</h2> -->
+							
+							<form th:action="@{/user/process-edit-profile}" method="post" 
+								  enctype="multipart/form-data" th:object="${user}">
+						  	
+							  	<!-- Name -->
+							  	<div class="form-group">
+							  		<label><strong>Name</strong></label>
+							  		<input type="text" name="name" class="form-control"
+							  			   th:field="*{name}" required />
+							  	</div>
+							  	
+							  	<!-- Email -->
+							  	<div class="form-group">
+							  		<label><strong>Email</strong></label>
+							  		<input type="email" name="email" class="form-control"
+							  			   th:field="*{email}" required />
+							  	</div>
+							  	
+							  	<!-- About -->
+							  	<div class="form-group">
+							  		<label><strong>About You</strong></label>
+							  		<textarea name="about" rows="5" class="form-control"
+							  				  th:field="*{about}" ></textarea>
+							  	</div>
+							  	
+							  	<!-- Image Upload -->
+							  	<div class="form-group">
+							  		<label><strong>Upload New Profile Photo</strong></label>
+							  		<input type="file" class="form-control" name="profileImage" />
+							  	</div>
+							  	
+							  	<div class="text-center mt-4">
+							  		<button type="submit" class="btn btn-secondary">Save Changes</button>
+							  		<a href="/user/dashboard" class="btn btn-secondary">Cancel</a>
+							  	</div>
+						  	
+						  	</form>
+					
+						</div>
+				
+					</div>
+			
+				</div>
+		
+			</div>
+			
+			<script>
+				$(document).ready(() => {
+					$(".item").removeClass("active");
+					$("#settings-link").addClass("active");
+				})
+			</script>
+	
+	</section>
+</body>
+</html>

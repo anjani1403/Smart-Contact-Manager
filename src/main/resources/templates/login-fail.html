@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: Layout(~{::section})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>This is login-failed page</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+		    <div class="card mt-5">
+		        <div class="card-header text-center" style="background-color : #7D8597; border-radius : 16px;">
+		            <h1 class="text-danger font-weight-bold">Login Failed!</h1>
+		        </div>
+		        <div class="card-body text-center">
+		            <strong><h5 th:text="'Invalid username or password'"></h5></strong>
+		            <div class="text-center mt-3">
+		            	<a th:href="@{/}" class="btn btn-info">Go to Home</a>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</section>
+</body>
+</html>

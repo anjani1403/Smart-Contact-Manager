@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base :: Layout(~{::section})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>Settings</title>
+</head>
+<body>
+	<section th:fragment="section">
+	
+	<!-- Container for Change Password Field -->
+		
+		<div class="container">
+		
+			<div class="row">
+			
+				<div class="col-md-12">
+				
+					<div class="card">
+					
+						<div class="card-body">
+						
+							<h2 class="my-3 font-weight-bold">Change Password</h2>
+							
+							<form th:action="@{/user/change-password}" method="post">
+							
+								<!-- old password field -->
+								
+								<div class="form-group">
+								
+									<input required name="oldPassword" type="password" class="form-control" placeholder="Enter Your Old Password"/>
+								
+								</div>
+								
+								<!-- new password field -->
+								
+								<div class="form-group">
+								
+									<input required name="newPassword" type="password" class="form-control" placeholder="Enter Your New Password"/>
+								
+								</div>
+								
+								<div class="container d-flex justify-content-end">
+								
+									<button type="submit" class="btn btn-success mr-1 mb-1"> Change </button>
+									<button type="reset" class="btn btn-warning ml-1 mb-1"> Reset </button>
+								
+								</div>
+							
+							</form>
+						
+						</div>
+					
+					</div>
+				
+				</div>
+			
+			</div>
+		
+		</div>
+		
+		<!-- Container for Edit User Profile Field -->
+		
+		<div class="container mt-3">
+		
+			<div class="row">
+			
+				<div class="col-md-12">
+				
+					<div class="card">
+					
+						<div class="card-body">
+						
+							<h2 class="my-3 font-weight-bold">Edit Your Profile</h2>
+		                    <h6>Want to update your name, email, about section or profile picture?</h6>
+							
+							<div class="text-right">
+								<a th:href="@{/user/edit-profile}" class="btn btn-primary mr-2 mb-1">Edit Profile</a>
+							</div>
+						
+						</div>
+					
+					</div>
+				
+				</div>
+			
+			</div>
+		
+		</div>
+
+		<script>
+			$(document).ready(() => {
+				$(".item").removeClass("active");
+				$("#settings-link").addClass("active");
+			})
+		</script>
+	
+	</section>
+</body>
+</html>

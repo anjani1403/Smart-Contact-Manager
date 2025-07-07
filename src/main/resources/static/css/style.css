@@ -1,15 +1,18 @@
 body {
-	background : #e2e2e2!important
+	background: linear-gradient(to bottom right, #1e2b43, #0a1325);
+	min-height: 100vh;
 }
 
 .bg-primary {
-	background : #009688 !important;
+	/* background : #009688 !important; */
+	background : #001233 !important;
 }
 
 .banner {
 	width : 100%;
-	height : 93vh;
-	background : linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)) ,url(../img/background.jpeg);
+	height : 100vh;
+	padding-bottom : 70px;
+	background: linear-gradient(to bottom right, #1e2b43, #0a1325);
 	background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -17,11 +20,199 @@ body {
 	color : white;
 }
 
+.text-info {
+  color: #001233 !important;
+}
+
+.btn-info{
+	 background: #001233;
+     border: none !important;
+     color: white !important;
+     border-radius: 0 !important;
+}
+
+.btn-info:hover {
+  background: linear-gradient(to right, #33415C, #1f283a) !important;
+  border-color: #4b556b !important;
+}
+
+.no-scroll{
+	overflow : hidden;
+}
+
+/* about page content container design */
+.glass-container {
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border-radius: 15px;
+	padding: 30px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+	color: white;
+	max-width: 800px;
+	margin: 10px auto 0 auto;
+}
+
+/* sign-up page form */
 .my-card{
 	padding : 20px;
-	background : #ffffff;
-	border: 1px solid #ccc;
-	border-radius: 10px;
-	background-color: white;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	border: none;
+	border-radius: 15px;
+	background: linear-gradient(to bottom right, #5C677D, #9CA3B5);
+	box-shadow: 0 12px 35px rgba(255, 255, 255, 0.2);
+}
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 400px;
+  border: none;
+  background: linear-gradient(to bottom right, #5C677D, #9CA3B5);
+  border-radius : 15px;
+  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.2);
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+.form-control{
+	background:#979DAC;
+	border-radius : 20px;
+	border: none;
+}
+
+/* Home page's all the boxes */
+
+.card{
+	background: linear-gradient(to bottom right, #5C677D, #9CA3B5);
+	border: none;
+	border-radius : 15px;
+}
+
+.card-body{
+	background: linear-gradient(to bottom right, #5C677D, #9CA3B5);
+	border: none;
+	border-radius : 15px;
+}
+
+/* Sidebar Style */
+
+@media only screen and (max-width : 600px){
+	.sidebar{
+		display : none;
+		width : 80% !important;
+		background: linear-gradient(to bottom, #33415C, #2A334A, #1F2635);
+		height : 100vh;
+		position : fixed;
+		padding-top : 20px;
+	}
+	.content {
+		margin-left : 0% !important;
+	}
+}
+
+.sidebar {
+	width : 18%;
+	background: linear-gradient(to bottom, #33415C, #2A334A, #1F2635);
+	height :100%;
+	position : fixed;
+	padding-top : 45px;
+	z-index : 9999;
+}
+
+.sidebar a {
+	display : block;
+	width : 100%;
+	padding : 10px 25px;
+	text-decoration : none;
+	/* color : gray; */
+	color : #F5F5F5 ;
+}
+
+.sidebar a:hover {
+	background : linear-gradient(to bottom right, #1e2b43, #0a1325);
+}
+
+.content{
+	margin-left :20%;
+	transition: margin-left 0.3s ease;
+}
+
+.content-box{
+	margin-top : 56px;
+}
+
+.sidebar .crossBtn{
+	position : absolute;
+	top : 0;
+	right : 35px;
+	font-size : 36px;
+	cursor : pointer;
+}
+
+.sidebar.hide {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+/* add contact page's success-failure alert message */
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1.5px solid #28a745; 
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1.5px solid #dc3545; 
+}
+
+.alert {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+
+/* profile decoration of show-contacts page */
+.my-profile-picture{
+	width : 30px;
+	height : 30px;
+	border : 1px solid gray;
+	border-radius : 50%;
+	object-fit : cover;
+}
+
+.pagination .page-link {
+    color: white !important;
+    background: #001233 !important;
+    border: none;
+}
+
+/* searchbar in show-contacts page */
+.search-container{
+	position : relative;
+}
+
+.search-result{
+	position : absolute;
+	background : white;
+	width : 100%;
+	padding : 15px;
+	border : 1px solid gray;
+	border-radius : 10px;
+	display : none;
+	z-index : 9999;
+}
+
+.active{
+	background : #001233 !important;
+	color : white !important;
 }
