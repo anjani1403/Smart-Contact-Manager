@@ -62,6 +62,12 @@ body {
 	box-shadow: 0 12px 35px rgba(255, 255, 255, 0.2);
 }
 
+/* hover color for links in login page */
+a.hover-link:hover{
+	color : red !important;
+	text-decoration : none;
+}
+
 #login .container #login-row #login-column #login-box {
   margin-top: 120px;
   max-width: 600px;
